@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="TareaFinalT1/src"/>
+	<classpathentry kind="lib" path="C:/Users/alvar/Downloads/kxml2-2.3.0 (1).jar"/>
+	<classpathentry kind="lib" path="C:/Users/alvar/Downloads/xstream-distribution-1.4.21-bin/xstream-1.4.21/lib/xstream-1.4.21.jar"/>
+	<classpathentry kind="lib" path="C:/Users/alvar/Downloads/jar sqlite/jar sqlite/sqlite-jdbc-3.27.2.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
