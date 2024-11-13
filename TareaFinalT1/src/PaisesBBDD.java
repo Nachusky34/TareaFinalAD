@@ -172,7 +172,7 @@ public class PaisesBBDD {
 		
 		int filasActualizadas = ps.executeUpdate();
 		if (filasActualizadas > 0) {
-			System.out.println("Paíss Actualzado Correctamente");
+			System.out.println("Paíes Actualzado Correctamente");
 		} else {
 			System.out.println("No se encontró el país");
 		}
