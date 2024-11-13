@@ -6,20 +6,12 @@ public class AlmacenarEnBinario {
 
     public static void main(String[] args) throws IOException {
         FileInputStream fil1 = new FileInputStream("paises.xml");
-
-        XStream xstream = new XStream();
-        Class[] clases = {ListaPaises.class, Pais.class};
-        xstream.allowTypes(clases);
-        xstream.alias("Paises", ListaPaises.class);
-        xstream.alias("Pais", Pais.class);
-        xstream.addImplicitCollection(ListaPaises.class, "Paises");
-
-        ListaPaises Paises = (ListaPaises) xstream.fromXML(fil1);
+        ObtenerPaisesXstream xs = new ObtenerPaisesXstream();
 
 
         ObjectOutputStream writer = new ObjectOutputStream(new FileOutputStream("Paises.dat"));
         ObjectInputStream reader = new ObjectInputStream(new FileInputStream("Paises.dat"));
-        writer.writeObject(Paises);
+        writer.writeObject(xs.getListaPaises());
         ListaPaises lp;
         try {
             lp = (ListaPaises) reader.readObject();

@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 
 public class ObtenerPaisesXstream {
 
-    public static void main(String[] args) throws FileNotFoundException {
+    public ListaPaises getListaPaises() throws FileNotFoundException {
         FileInputStream fil1 = new FileInputStream("paises.xml");
 
         XStream xstream = new XStream();
@@ -15,8 +15,6 @@ public class ObtenerPaisesXstream {
         xstream.alias("Pais", Pais.class);
         xstream.addImplicitCollection(ListaPaises.class, "Paises");
 
-        ListaPaises Paises = (ListaPaises) xstream.fromXML(fil1);
-
-        Paises.Imprimir();
+        return (ListaPaises) xstream.fromXML(fil1);
     }
 }

@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c1b6549-cdcb-44eb-b9d0-b8cd807695a2" name="Changes" comment="" />
+    <list default="true" id="ee48e8b0-2a6f-4885-a4d6-22ea21f577ac" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/kxml2_2_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/xstream_1_4_21.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TareaFinalAD.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TareaFinalAD.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TareaFinalT1/src/AlmacenarEnBinario.java" beforeDir="false" afterPath="$PROJECT_DIR$/TareaFinalT1/src/AlmacenarEnBinario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TareaFinalT1/src/ObtenerPaisesXstream.java" beforeDir="false" afterPath="$PROJECT_DIR$/TareaFinalT1/src/ObtenerPaisesXstream.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TareaFinalT1/src/PaisesBBDD.java" beforeDir="false" afterPath="$PROJECT_DIR$/TareaFinalT1/src/PaisesBBDD.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,38 +27,48 @@
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 8
 }]]></component>
-  <component name="ProjectId" id="2olg88OG0F6bjUUNSmdZ3tiCGk5" />
+  <component name="ProjectId" id="2onqEnNjrEg6dOY6zJfr04fj1uN" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.AlmacenarEnBinario.executor": "Run",
+    "Application.XML.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "alvaro",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/intellij/IdeaProjects/TareaFinalAD",
+    "last_opened_file_path": "D:/JDK/xstream-1.4.21/lib/xstream-1.4.21.jar",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
-        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="4c1b6549-cdcb-44eb-b9d0-b8cd807695a2" name="Changes" comment="" />
-      <created>1731449413621</created>
+      <changelist id="ee48e8b0-2a6f-4885-a4d6-22ea21f577ac" name="Changes" comment="" />
+      <created>1731515578992</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1731449413621</updated>
-      <workItem from="1731449414642" duration="52000" />
+      <updated>1731515578992</updated>
+      <workItem from="1731515580036" duration="4926000" />
     </task>
     <servers />
   </component>
