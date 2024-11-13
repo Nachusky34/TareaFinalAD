@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Paises>
+    <Pais>
+        <nombre>Belice</nombre>
+        <presidente>Froyla Tzalam</presidente>
+        <pib>1987000000</pib>
+        <coGini>53.3</coGini>
+    </Pais>
+    <Pais>
+        <nombre>El Salvador</nombre>
+        <presidente>Nayib Bukele</presidente>
+        <pib>74818000000</pib>
+        <coGini>38.8</coGini>
+    </Pais>
+    <Pais>
+        <nombre>Guatemala</nombre>
+        <presidente>Alejandro Giammattei</presidente>
+        <pib>185474000000</pib>
+        <coGini>48.3</coGini>
+    </Pais>
+    <Pais>
+        <nombre>Honduras</nombre>
+        <presidente>Xiomara Castro</presidente>
+        <pib>85625000000</pib>
+        <coGini>48.2</coGini>
+    </Pais>
+    <Pais>
+        <nombre>Nicaragua</nombre>
+        <presidente>Daniel Ortega</presidente>
+        <pib>47770000000</pib>
+        <coGini>46.2</coGini>
+    </Pais>
+    <Pais>
+        <nombre>México</nombre>
+        <presidente>Andrés Manuel López Obrador</presidente>
+        <pib>2890685000000</pib>
+        <coGini>45.4</coGini>
+    </Pais>
+    <Pais>
+        <nombre>Panamá</nombre>
+        <presidente>Laurentino Cortizo</presidente>
+        <pib>128500000000</pib>
+        <coGini>50.9</coGini>
+    </Pais>
+    <Pais>
+        <nombre>Costa Rica</nombre>
+        <presidente>Rodrigo Chaves</presidente>
+        <pib>129950000000</pib>
+        <coGini>47.2</coGini>
+    </Pais>
+</Paises>
