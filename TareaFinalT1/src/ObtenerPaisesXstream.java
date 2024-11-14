@@ -22,4 +22,8 @@ public class ObtenerPaisesXstream {
         //Leemos el xml
         return (ListaPaises) xstream.fromXML(fil1);
     }
+
+    public void Imprimir(ListaPaises lp){
+        lp.Imprimir();
+    }
 }

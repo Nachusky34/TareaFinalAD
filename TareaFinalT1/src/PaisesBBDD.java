@@ -9,16 +9,6 @@ import java.sql.Statement;
 
 public class PaisesBBDD {
 
-	public static void main(String[] args) throws SQLException, FileNotFoundException {
-		PaisesBBDD p = new PaisesBBDD();
-		p.generarBBDD();
-		p.getPaises();
-		p.modificarPib();
-		p.getPaises();
-		p.modificarGini();
-		p.getPaises();
-	}
-
 	public void getPaises() throws SQLException {
 		//Establecemos conexion
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:file:Paises.db");
@@ -255,6 +245,7 @@ public class PaisesBBDD {
 		//Aumentamos el pib en 10 millones
 		PreparedStatement aumentarPib = conn.prepareStatement("UPDATE Paises SET pib = pib + 10000000 ");
 		aumentarPib.executeUpdate();
+		System.out.println("Pib Actualizado Correctamente");
 	}
 
 	public void modificarGini() throws SQLException {
@@ -269,5 +260,6 @@ public class PaisesBBDD {
 
 			ps.executeUpdate();
 		}
+		System.out.println("Gini Actualizado Correctamente");
 	}
 }
