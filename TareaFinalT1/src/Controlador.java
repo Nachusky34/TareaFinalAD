@@ -9,19 +9,14 @@ public class Controlador {
 
     public void ejercicio1() throws ParserConfigurationException, TransformerException {
         XML xml = new XML();
-        try{
-            xml.agregarDatosXml();
-        } catch (ParserConfigurationException e) {
-            throw new ParserConfigurationException();
-        } catch (TransformerConfigurationException e) {
-            throw new TransformerConfigurationException();
-        }
+
+        xml.agregarDatosXml();
     }
 
     public void ejercicio3(){
         ObtenerPaisesXstream xs = new ObtenerPaisesXstream();
         try {
-            xs.Imprimir(xs.getListaPaises());
+            xs.imprimir(xs.getListaPaises());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -31,7 +26,7 @@ public class Controlador {
         AlmacenarEnBinario bi = new AlmacenarEnBinario();
 
         bi.almacenarDatos();
-        bi.Imprimir();
+        bi.imprimir();
     }
 
     public void ejercicio5() throws SQLException, FileNotFoundException {

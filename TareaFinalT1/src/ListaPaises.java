@@ -15,7 +15,7 @@ public class ListaPaises implements Serializable {
         return Paises;
     }
 
-    public void Imprimir() {
+    public void imprimir() {
         for (Pais p : Paises) {
             System.out.println(p);
         }

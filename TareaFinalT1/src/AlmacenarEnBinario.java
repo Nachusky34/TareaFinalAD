@@ -18,7 +18,7 @@ public class AlmacenarEnBinario {
         System.out.println("Datos almacenados exitosamente");
     }
 
-    public void Imprimir() throws IOException {
+    public void imprimir() throws IOException {
         ObjectInputStream reader = new ObjectInputStream(new FileInputStream("Paises.dat"));
 
         try {
