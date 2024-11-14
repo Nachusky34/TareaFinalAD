@@ -20,14 +20,15 @@ public class PaisesBBDD {
 	}
 
 	public void getPaises() throws SQLException {
+		//Establecemos conexion
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:file:Paises.db");
-		PreparedStatement sentencia;
-		ResultSet resultado;
 
-		sentencia = conn.prepareStatement("SELECT * FROM Paises");
+		//Hacemos una consulta de la tabla entera
+		PreparedStatement sentencia = conn.prepareStatement("SELECT * FROM Paises");
 		System.out.println("BBDD:");
-		resultado = sentencia.executeQuery();
+		ResultSet resultado = sentencia.executeQuery();
 
+		//Imprimimos la tabla por consola
 		boolean hayDatos = false;
 		while (resultado.next()) {
 			System.out.println("NOMBRE: " + resultado.getString("nombre") + "  - PRESIDENTE: "
@@ -36,6 +37,7 @@ public class PaisesBBDD {
 			hayDatos = true;
 		}
 
+		//Comprobamos posibles error por nullPointerException
 		if (!hayDatos) {
 			System.out.println("La tabla PAISES está vacía.");
 		}
@@ -49,9 +51,12 @@ public class PaisesBBDD {
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:file:Paises.db");
 		Statement stmt2 = conn.createStatement();
 		ObtenerPaisesXstream xs = new ObtenerPaisesXstream();
+
+		//Borramos la tabla
 		PreparedStatement delete = conn.prepareStatement("DROP TABLE Paises");
 		delete.executeUpdate();
 
+		//Cremos la tabla Paises
         String createTableSQL = "CREATE TABLE IF NOT EXISTS Paises ("
                 + "nombre TEXT PRIMARY KEY, "
                 + "presidente TEXT, "
@@ -60,10 +65,10 @@ public class PaisesBBDD {
         stmt2.executeUpdate(createTableSQL);
         System.out.println("Tabla 'Paises' creada.");
 
-
         String insertDatosPaises = "INSERT INTO Paises (nombre, presidente, pib, coGini) VALUES (?, ?, ?, ?)";
 
         try (PreparedStatement stmt = conn.prepareStatement(insertDatosPaises)) {
+			//Insertamos las filas una por una
         	for (Pais p : xs.getListaPaises().getPaises()) {
 				stmt.setString(1, p.getNombre());
         		stmt.setString(2, p.getPresidente());
@@ -78,10 +83,12 @@ public class PaisesBBDD {
 
 	public boolean guardarPais(Scanner sc) throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:file:Paises.db");
+		//Statment
 	    String sql = "INSERT INTO Pais (nombre, presidente, pib, coGini) "
 	               + "VALUES (?, ?, ?, ?)";
 	    PreparedStatement ps = conn.prepareStatement(sql);
 
+		//Solicitamos los datos del nuevo pais
 	    System.out.println("Inserte el nombre del Pais");
 	    System.out.println("Inserte el presidente del Pais");
 	    System.out.println("Inserte el PIB del Pais");
@@ -92,6 +99,7 @@ public class PaisesBBDD {
 	    ps.setLong(3, sc.nextLong());
 	    ps.setDouble(4, sc.nextDouble());
 
+		//Ejecutamos la statment y guardamos el valor para ver si se ha insertado
 	    int filasInsertadas = ps.executeUpdate();
 	    ps.close();
 	    conn.close();
@@ -102,15 +110,18 @@ public class PaisesBBDD {
 	public void busquedaPais(Scanner sc) throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:file:Paises.db");
 
+		//Statment
 	    String sql = "SELECT * FROM Pais WHERE nombre = ?";
 	    PreparedStatement ps = conn.prepareStatement(sql);
 
+		//Pedimos el nombre del pais
 	    System.out.println("Inserte el nombre del Pais");
 	    String nombre = sc.nextLine();
 
 	    ps.setString(1, nombre);
 	    ResultSet rs = ps.executeQuery();
 
+		//Si hay un pais con ese nombre se devuleven los datos del pais
 	    if (rs.next()) {
 	    	System.out.println("Nombre del Pais: " + rs.getString("nombre"));
 	    	System.out.println("Presidente del Pais: " + rs.getString("presidente"));
@@ -128,7 +139,9 @@ public class PaisesBBDD {
 
 	public void modificarPaises(Scanner sc) throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:file:Paises.db");
+		PreparedStatement ps = null;
 
+		//Pedimos el campo a modificar
 		System.out.println("---------- SELECCIONA LO QUE DESEA MODIFICAR ----------");
 		System.out.println("1, Nombre");
 		System.out.println("2, Presidente");
@@ -143,8 +156,8 @@ public class PaisesBBDD {
 		Object nuevoValor = null;
 		String campo = null;
 
+		//Pedimos cuantos paises se van a modificar y cuales
 		System.out.println("Cuantos paises desea modificar: ");
-
 		for (int i = 0; i < sc.nextInt(); i++) {
 			System.out.println("Que pais deseas modificar? + \n" +
 					"1: Belice\n" +
@@ -188,6 +201,7 @@ public class PaisesBBDD {
 					return;
 			}
 
+			//Pedimos el valor nuevo del campo a modificar
 			switch (opcion) {
 				case 1:
 					System.out.println("Ingrese el nuevo nombre: ");
@@ -214,20 +228,21 @@ public class PaisesBBDD {
 					conn.close();
 					return;
 			}
+			//Actualizamos el campo
+			String actualizarCampos = "UPDATE Pais SET" + campo + " = ? WHERE nombre = ?";
+			ps = conn.prepareStatement(actualizarCampos);
+
+			ps.setObject(1, nuevoValor);
+			ps.setString(2, nombre);
+
+			int filasActualizadas = ps.executeUpdate();
+			if (filasActualizadas > 0) {
+				System.out.println("Paíes Actualzado Correctamente");
+			} else {
+				System.out.println("No se encontró el país");
+			}
 		}
 
-		String actualizarCampos = "UPDATE Pais SET" + campo + " = ? WHERE nombre = ?";
-		PreparedStatement ps = conn.prepareStatement(actualizarCampos);
-
-		ps.setObject(1, nuevoValor);
-		ps.setString(2, nombre);
-
-		int filasActualizadas = ps.executeUpdate();
-		if (filasActualizadas > 0) {
-			System.out.println("Paíes Actualzado Correctamente");
-		} else {
-			System.out.println("No se encontró el país");
-		}
 
 		ps.close();
 		conn.close();
@@ -237,12 +252,14 @@ public class PaisesBBDD {
 	public void modificarPib() throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:file:Paises.db");
 
+		//Aumentamos el pib en 10 millones
 		PreparedStatement aumentarPib = conn.prepareStatement("UPDATE Paises SET pib = pib + 10000000 ");
 		aumentarPib.executeUpdate();
 	}
 
 	public void modificarGini() throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:sqlite:file:Paises.db");
+		//Disminuimos el coGini el 1/3
 		String mod = "UPDATE Paises SET coGini = coGini * 2/3 WHERE nombre = ? OR nombre = ? OR nombre = ?";
 
 		try(PreparedStatement ps = conn.prepareStatement(mod)) {
